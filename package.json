@@ -1,0 +1,14 @@
+{
+  "name": "minesweeper",
+  "version": "1.0.0",
+  "description": "A simple game",
+  "main": "MineSweeper",
+  "repository": "https://github.com/langong-dev/minesweeper",
+  "author": "langonginc <langonginc@yeah.net>",
+  "license": "MIT",
+  "private": false,
+  "bin" : {
+    "minesweeper": "MineSweeper",
+    "sweeperinit": "init.sh"
+  }
+}

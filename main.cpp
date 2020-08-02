@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <curses.h>
 #include <unistd.h>
+#include <ctime>
 using namespace std;
 
 
@@ -59,6 +60,8 @@ const int dx[4] = {1, -1, 0, 0};
 const int dy[4] = {0, 0, 1, -1};
 const int nx[8] = {1, 1, 1, 0, -1, -1, -1, 0};
 const int ny[8] = {1, 0, -1, -1, -1, 0, 1, 1};
+
+clock_t stime, etime;
 
 using namespace getkey;
 
@@ -246,8 +249,25 @@ void InitsialGame ()
 }
 
 void dead (){
-  system ("clear");
-  printf (" Boom! You lose!\n");
+  etime = clock();
+  // system ("clear");
+  printf ("\033[31m Boom! You lose!\033[0m\n");
+  freopen ("/tmp/minesweeper-tmp", "w", stdout);
+  printf ("User %s lose the game. Used %lf sec.\n", user.user, double(etime-stime)/CLOCKS_PER_SEC);
+  system ("echo $(cat /tmp/minesweeper-tmp) >> $HOME/.local/share/minesweeper/log");
+  exit (0);
+}
+
+void win ()
+{
+  etime = clock();
+  // system ("clear");
+  printf ("\033[32m Well done! You win the game! Used %lf sec!\033[0m\n", double(etime-stime)/CLOCKS_PER_SEC);
+  freopen (user.level_file, "w", stdout);
+  printf ("%d", ++ user.level);
+  freopen ("/tmp/minesweeper-tmp", "w", stdout);
+  printf ("User %s win the level %d in %lf sec.", user.user, user.level, double(etime-stime)/CLOCKS_PER_SEC);
+  system ("echo $(cat /tmp/minesweeper-tmp) >> $HOME/.local/share/minesweeper/log");
   exit (0);
 }
 
@@ -293,13 +313,14 @@ int StartGame()
 {
   int mylei = 0;
   int truelei = 0;
+  stime = clock ();
   while (true)
   {
     system ("clear");
     if (ftrue >= gr())
     {
       // win ();
-      printf ("WIN");
+      win ();
       return 0;
       break;
     }
@@ -360,7 +381,7 @@ int StartGame()
       printf ("\n");
     }
     printf ("\n");
-    printf (" Use UP DOWN LEFT RIGHT to move\n Use SPACE to mark it\n Use ENTER to check\n");
+    printf (" Use UP DOWN LEFT RIGHT to move\n Use SPACE to mark it\n Use ENTER to check\n\n Your level is %d\n There are %d bombs left\n", user.level, gr() - fcount);
     int r = checkkey(keyboard());
     if (r == 1)
     {
@@ -421,6 +442,10 @@ int StartGame()
       }
       else
       {
+        if (fcount >= gr())
+        {
+          continue;
+        }
         fcount ++;
         flag[x][y]  = true;
         if (back[x][y] == -1)
@@ -444,24 +469,19 @@ int StartGame()
 
 int main (int argc, char* argv[])
 {
-  //printf ("%d",keyboard());
   StartProgress();
-  //system ("clear");
-  int st = true;
-  while (st)
-  {
-    InitsialGame();
-    system ("clear");
-    // for (int i = 1; i <= gw(); i ++)
-    // {
-    //   for (int j = 1; j <=gw(); j ++)
-    //   {
-    //     printf ("%d ", back[i][j]);
-    //   }
-    //   printf ("\n");
-    // }return 0;
-    st = StartGame();
-  }
+  InitsialGame();
+  system ("clear");
+  // for (int i = 1; i <= gw(); i ++)
+  // {
+  //   for (int j = 1; j <=gw(); j ++)
+  //   {
+  //     printf ("%d ", back[i][j]);
+  //   }
+  //   printf ("\n");
+  // }return 0;
+  int st = StartGame();
+  return st;
 }
 
 
