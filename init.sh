@@ -3,10 +3,12 @@
 
 echo " Preparing for user '$USER'"
 
-path="$HOME/.local/share/minesweeper/"
+ipath="$HOME/.local/share/minesweeper/"
 
-echo 0 > "$path/level"
-echo $USER > "$path/user"
-echo "" > "$path/log"
+mkdir -p $ipath
+
+echo 0 > "$ipath/level"
+echo $USER > "$ipath/user"
+echo "" > "$ipath/log"
 
 echo " OKay!"

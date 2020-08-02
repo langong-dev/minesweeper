@@ -246,7 +246,8 @@ void InitsialGame ()
 }
 
 void dead (){
-  printf ("DEAD!");
+  system ("clear");
+  printf (" Boom! You lose!\n");
   exit (0);
 }
 
