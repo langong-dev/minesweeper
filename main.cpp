@@ -54,6 +54,7 @@ const int many = 40;
 const char con[10] = "/dev/tty";
 const char error[100][100] = {
   "--------- Error UKE: Unknow Error ----------\n",
+  "--------- Error 1: User not found ----------\n"
 };
 
 const int dx[4] = {1, -1, 0, 0};
@@ -119,8 +120,8 @@ void StartProgress ()
   //cout << user.user << " " << user.level << " " << user.log_file;
   if (user.level == -1)
   {
-    printf ("%s", error[0]);
-    exit (-1);
+    printf (" %s Use 'MineSweeper init' to creat a user.\n", error[1]);
+    exit (1);
   }
   if (user.level <= 25)
   {
