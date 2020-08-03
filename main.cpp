@@ -104,15 +104,15 @@ public:
 void StartProgress ()
 {
   user.level = -1;
-  printf (" Starting MineSweeper game...\n");
-  system ("echo $HOME/.local/share/minesweeper/log > /tmp/minesweeper-log");
-  system ("echo $USER > /tmp/minesweeper-user");
-  system ("echo $HOME/.local/share/minesweeper/level > /tmp/minesweeper-lev");
-  freopen ("/tmp/minesweeper-log", "r", stdin);
+  printf (" Starting Terminal MineSweeper game...\n");
+  system ("echo $HOME/.local/share/tminesweeper/log > /tmp/tminesweeper-log");
+  system ("echo $USER > /tmp/tminesweeper-user");
+  system ("echo $HOME/.local/share/tminesweeper/level > /tmp/tminesweeper-lev");
+  freopen ("/tmp/tminesweeper-log", "r", stdin);
   cin >> user.log_file;
-  freopen ("/tmp/minesweeper-user", "r", stdin);
+  freopen ("/tmp/tminesweeper-user", "r", stdin);
   cin >> user.user;
-  freopen ("/tmp/minesweeper-lev", "r", stdin);
+  freopen ("/tmp/tminesweeper-lev", "r", stdin);
   cin >> user.level_file;
   freopen (user.level_file, "r", stdin);
   cin >> user.level;
@@ -120,7 +120,7 @@ void StartProgress ()
   //cout << user.user << " " << user.level << " " << user.log_file;
   if (user.level == -1)
   {
-    printf (" %s Use 'minesweeper init' to creat a user.\n", error[1]);
+    printf (" %s Use 'tminesweeper init' to creat a user.\n", error[1]);
     exit (1);
   }
   if (user.level <= 25)
@@ -255,7 +255,7 @@ void dead (){
   printf ("\033[31m Boom! You lose!\033[0m\n");
   freopen ("/tmp/minesweeper-tmp", "w", stdout);
   printf ("User %s lose the game. Used %lf sec.\n", user.user, double(etime-stime)/CLOCKS_PER_SEC);
-  system ("echo $(cat /tmp/minesweeper-tmp) >> $HOME/.local/share/minesweeper/log");
+  system ("echo $(cat /tmp/tminesweeper-tmp) >> $HOME/.local/share/tminesweeper/log");
   exit (0);
 }
 
@@ -266,9 +266,9 @@ void win ()
   printf ("\033[32m Well done! You win the game! Used %lf sec!\033[0m\n", double(etime-stime)/CLOCKS_PER_SEC);
   freopen (user.level_file, "w", stdout);
   printf ("%d", ++ user.level);
-  freopen ("/tmp/minesweeper-tmp", "w", stdout);
+  freopen ("/tmp/tminesweeper-tmp", "w", stdout);
   printf ("User %s win the level %d in %lf sec.", user.user, user.level, double(etime-stime)/CLOCKS_PER_SEC);
-  system ("echo $(cat /tmp/minesweeper-tmp) >> $HOME/.local/share/minesweeper/log");
+  system ("echo $(cat /tmp/tminesweeper-tmp) >> $HOME/.local/share/tminesweeper/log");
   exit (0);
 }
 
@@ -474,7 +474,7 @@ int main (int argc, char* argv[])
   {
     if (strcmp (argv[1], "init") == 0)
     {
-      system ("bash /usr/share/minesweeper/init.sh");
+      system ("bash /usr/share/tminesweeper/init.sh");
     }
     if (strcmp (argv[1], "uninstall") == 0)
     {
@@ -482,7 +482,7 @@ int main (int argc, char* argv[])
       char a;
       scanf ("%c", &a);
       if (a == 'y')
-        system ("bash /usr/share/minesweeper/uninstall.sh");
+        system ("bash /usr/share/tminesweeper/uninstall.sh");
     }
     /*if (strcmp (argv[1], "log"))
     {

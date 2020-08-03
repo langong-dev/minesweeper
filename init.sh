@@ -3,7 +3,7 @@
 
 echo " Preparing for user '$USER'"
 
-ipath="$HOME/.local/share/minesweeper/"
+ipath="$HOME/.local/share/tminesweeper/"
 
 mkdir -p $ipath
 

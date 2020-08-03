@@ -1,12 +1,12 @@
 #!/usr/bin/bash
 
-echo " >> Uninstall MineSweeper"
+echo " >> Uninstall Terminal MineSweeper"
 
 cd /usr/share
-rm -rf minesweeper
+rm -rf tminesweeper
 
 cd /usr/bin
-rm -f MineSweeper
+rm -f tminesweeper
 
-echo " >> Uninstalled MineSweeper"
+echo " >> Uninstalled Terminal MineSweeper"
 

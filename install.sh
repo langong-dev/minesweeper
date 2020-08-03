@@ -6,37 +6,37 @@ fail(){
 }
 
 
-echo " >> Installing MineSweeper..."
+echo " >> Installing Terminal MineSweeper..."
 
 echo "    -> Downloading sorces..."
 #mkdir -p "/usr/share/minesweeper"
 cd /usr/share
-git clone https://github.com/langong-dev/minesweeper.git
+git clone https://github.com/langong-dev/tminesweeper.git
 
 echo "    -> Putting files..."
-cd minesweeper
-g++ main.cpp -o /usr/bin/minesweeper
+cd tminesweeper
+g++ main.cpp -o /usr/bin/tminesweeper
 
 
 echo " >> Checking..."
 
-echo "    -> Checking /usr/bin/minesweeper"
+echo "    -> Checking /usr/bin/tminesweeper"
 
-if [ ! -f "/usr/bin/minesweeper" ]; then
+if [ ! -f "/usr/bin/tminesweeper" ]; then
   fail
 fi
 
-echo "    -> Checking /usr/share/minesweeper/init.sh"
+echo "    -> Checking /usr/share/tminesweeper/init.sh"
 
 if [ ! -f "init.sh" ]; then
   fail
 fi
 
-echo "    -> Checking /usr/share/minesweeper/uninstall.sh"
+echo "    -> Checking /usr/share/tminesweeper/uninstall.sh"
 
 if [ ! -f "uninstall.sh" ]; then
   fail
 fi
 
-echo " >> Installed MineSweeper."
+echo " >> Installed Terminal MineSweeper."
 
