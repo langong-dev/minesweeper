@@ -286,7 +286,7 @@ void dfs (int x, int y)
   if (flag[x][y])
   {
     fcount--;
-    flag[x][y] = 1;
+    flag[x][y] = 0;
   }
   if (back[x][y] == 0)
   {
