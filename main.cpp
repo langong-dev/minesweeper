@@ -47,9 +47,9 @@ const int small = 10;
 const int mid = 15;
 const int big = 25;
 const int inf = 55;
-const int shot = 10;
-const int mid_le = 20;
-const int many = 40;
+const int shot = 9;
+const int mid_le = 25;
+const int many = 50;
 
 const char con[10] = "/dev/tty";
 const char error[100][100] = {
@@ -104,6 +104,7 @@ public:
 void StartProgress ()
 {
   user.level = -1;
+  printf ("\033]0;LanGong Terminal MineSweeper Game\007");
   printf (" Starting Terminal MineSweeper game...\n");
   system ("echo $HOME/.local/share/tminesweeper/log > /tmp/tminesweeper-log");
   system ("echo $USER > /tmp/tminesweeper-user");
@@ -318,6 +319,7 @@ int StartGame()
   while (true)
   {
     system ("clear");
+    printf ("\n");
     if (ftrue >= gr())
     {
       // win ();
@@ -382,7 +384,7 @@ int StartGame()
       printf ("\n");
     }
     printf ("\n");
-    printf (" Use UP DOWN LEFT RIGHT to move\n Use SPACE to mark it\n Use ENTER to check\n\n Your level is %d\n There are %d bombs left\n", user.level, gr() - fcount);
+    printf (" Hi %s\n Use UP DOWN LEFT RIGHT to move\n Use SPACE to mark it\n Use ENTER to check\n\n Your level is %d\n There are %d bombs left\n", user.user, user.level, gr() - fcount);
     int r = checkkey(keyboard());
     if (r == 1)
     {
