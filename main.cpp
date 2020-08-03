@@ -469,6 +469,22 @@ int StartGame()
 
 int main (int argc, char* argv[])
 {
+  if (argc > 1)
+  {
+    if (strcmp (argv[1], "init") == 0)
+    {
+      system ("bash /usr/share/minesweeper/init.sh");
+    }
+    if (strcmp (argv[1], "uninstall") == 0)
+    {
+      printf (" This need sudo, If you are using root, you can input 'y'-ENTER and ignore me or input something with ENTER to exit.\n Input: ");
+      char a;
+      scanf ("%c", &a);
+      if (a == 'y')
+        system ("bash /usr/share/minesweeper/uninstall.sh");
+    }
+    return 0;
+  }
   StartProgress();
   InitsialGame();
   system ("clear");
