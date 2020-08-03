@@ -2,6 +2,7 @@
 
 > The minesweeper game for Linux and MacOS.
 
+![](http://516wjy.xyz:516/img/tminesweeper.png)
 
 # Install Game
 
