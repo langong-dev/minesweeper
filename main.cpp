@@ -483,10 +483,10 @@ int main (int argc, char* argv[])
       if (a == 'y')
         system ("bash /usr/share/minesweeper/uninstall.sh");
     }
-    if (strcmp (argv[1], "log"))
+    /*if (strcmp (argv[1], "log"))
     {
       system ("cat ~/.local/share/minesweeper/log");
-    }
+    }*/
     return 0;
   }
   StartProgress();
