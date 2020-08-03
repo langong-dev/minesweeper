@@ -1,4 +1,4 @@
-# LanGong Minesweeper
+# LanGong Terminal Minesweeper
 
 > The minesweeper game for Linux and MacOS.
 
