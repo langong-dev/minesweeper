@@ -9,20 +9,20 @@ fail(){
 echo " >> Installing MineSweeper..."
 
 echo "    -> Downloading sorces..."
-mkdir -p "/usr/share/minesweeper"
+#mkdir -p "/usr/share/minesweeper"
 cd /usr/share
 git clone https://github.com/langong-dev/minesweeper.git
 
 echo "    -> Putting files..."
 cd minesweeper
-g++ main.cpp -o /usr/bin/MineSweeper
+g++ main.cpp -o /usr/bin/minesweeper
 
 
 echo " >> Checking..."
 
-echo "    -> Checking /usr/bin/MineSweeper"
+echo "    -> Checking /usr/bin/minesweeper"
 
-if [ ! -f "/usr/bin/MineSweeper" ]; then
+if [ ! -f "/usr/bin/minesweeper" ]; then
   fail
 fi
 

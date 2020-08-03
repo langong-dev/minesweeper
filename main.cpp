@@ -120,7 +120,7 @@ void StartProgress ()
   //cout << user.user << " " << user.level << " " << user.log_file;
   if (user.level == -1)
   {
-    printf (" %s Use 'MineSweeper init' to creat a user.\n", error[1]);
+    printf (" %s Use 'minesweeper init' to creat a user.\n", error[1]);
     exit (1);
   }
   if (user.level <= 25)
