@@ -5,7 +5,7 @@
 
 # Install Game
 
-```bash
+```
 $ wget https://cdn.jsdelivr.net/gh/langong-dev/minesweeper/install.sh
 # bash install.sh
 ```
@@ -14,16 +14,16 @@ $ wget https://cdn.jsdelivr.net/gh/langong-dev/minesweeper/install.sh
 
 each user in your computer can creat only **one** user.
 
-```bash
-$ MineSweeper init
+```
+$ minesweeper init
 ```
 
 # Start game
 
 **Don't** use **root** to run the game.
 
-```bash
-$ MineSweeper
+```
+$ minesweeper
 ```
 
 # Feedback
