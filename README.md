@@ -7,7 +7,7 @@
 # Install Game
 
 ```
-$ wget https://cdn.jsdelivr.net/gh/langong-dev/minesweeper/install.sh
+$ wget https://cdn.jsdelivr.net/gh/langong-dev/tminesweeper/install.sh
 # bash install.sh
 ```
 
@@ -16,7 +16,7 @@ $ wget https://cdn.jsdelivr.net/gh/langong-dev/minesweeper/install.sh
 each user in your computer can creat only **one** user.
 
 ```
-$ minesweeper init
+$ tminesweeper init
 ```
 
 # Start game
@@ -24,8 +24,20 @@ $ minesweeper init
 **Don't** use **root** to run the game.
 
 ```
-$ minesweeper
+$ tminesweeper
 ```
+
+# Uninstall game
+
+```
+# tminesweeper uninstall
+```
+
+# Notices
+
+> ## Where do I use root
+> 
+> Use it with Install and Uninstall
 
 # Feedback
 
