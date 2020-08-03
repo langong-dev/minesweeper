@@ -253,7 +253,7 @@ void dead (){
   etime = clock();
   // system ("clear");
   printf ("\033[31m Boom! You lose!\033[0m\n");
-  freopen ("/tmp/minesweeper-tmp", "w", stdout);
+  freopen ("/tmp/tminesweeper-tmp", "w", stdout);
   printf ("User %s lose the game. Used %lf sec.\n", user.user, double(etime-stime)/CLOCKS_PER_SEC);
   system ("echo $(cat /tmp/tminesweeper-tmp) >> $HOME/.local/share/tminesweeper/log");
   exit (0);
