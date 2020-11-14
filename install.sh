@@ -8,7 +8,7 @@ fail(){
 
 echo " >> Installing Terminal MineSweeper..."
 
-echo "    -> Downloading sorces..."
+echo "    -> Downloading source..."
 #mkdir -p "/usr/share/minesweeper"
 cd /usr/share
 git clone https://github.com/langong-dev/tminesweeper.git
@@ -39,4 +39,7 @@ if [ ! -f "uninstall.sh" ]; then
 fi
 
 echo " >> Installed Terminal MineSweeper."
+echo "    -> Use 'tminesweeper' to start game"
+echo "    -> Use 'tminesweeper init' to setup user"
+
 

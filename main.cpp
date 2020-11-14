@@ -20,6 +20,7 @@ using namespace std;
 
 
 #include "getkeyboard.cpp"
+#include "defines.hpp"
 
 namespace getkey
 {
@@ -251,6 +252,7 @@ void InitsialGame ()
 }
 
 void dead (){
+  SHOW_CURSOR();
   etime = clock();
   // system ("clear");
   printf ("\033[31m Boom! You lose! Used %lf sec.\033[0m\n", double(etime-stime)/CLOCKS_PER_SEC * 1000);
@@ -262,6 +264,7 @@ void dead (){
 
 void win ()
 {
+  SHOW_CURSOR();
   etime = clock();
   // system ("clear");
   printf ("\033[32m Well done! You win the game! Used %lf sec!\033[0m\n", double(etime-stime)/CLOCKS_PER_SEC * 1000);
@@ -316,9 +319,11 @@ int StartGame()
   int mylei = 0;
   int truelei = 0;
   stime = clock ();
+  HIDE_CURSOR();
   while (true)
   {
-    system ("clear");
+    //system ("clear");
+    MOVETO(1,1);
     printf ("\n");
     if (ftrue >= gr())
     {
@@ -416,6 +421,7 @@ int StartGame()
     }
     if (r == 9)
     {
+      SHOW_CURSOR();
       return 0;
     }
     if (r == 13)
@@ -504,6 +510,7 @@ int main (int argc, char* argv[])
   //   printf ("\n");
   // }return 0;
   int st = StartGame();
+  SHOW_CURSOR();
   return st;
 }
 

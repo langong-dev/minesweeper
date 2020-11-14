@@ -9,4 +9,5 @@ cd /usr/bin
 rm -f tminesweeper
 
 echo " >> Uninstalled Terminal MineSweeper"
+echo "    -> Thanks for use LanGong Terminal MineSweeper"
 
