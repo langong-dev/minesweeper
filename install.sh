@@ -5,41 +5,62 @@ fail(){
   exit 1
 }
 
+type=$1
 
 echo " >> Installing Terminal MineSweeper..."
 
+if [ "$type" == "--install-to-here" ]
+then
+  echo " :: Install to here..."
+  tbin="./bin/tminesweeper"
+  tdir="./"
+  tusr="share"
+  drun="./tminesweeper"
+else
+  echo " :: Install to computer"
+  tbin="/usr/bin/tminesweeper"
+  tdir="/usr/share"
+  tusr="tminesweeper"
+  drun="tminesweeper"
+fi
+
+
 echo "    -> Downloading source..."
 #mkdir -p "/usr/share/minesweeper"
-cd /usr/share
-git clone https://github.com/langong-dev/tminesweeper.git
+cd $tdir
+git clone https://github.com/langong-dev/tminesweeper.git $tusr
 
 echo "    -> Putting files..."
-cd tminesweeper
-g++ main.cpp -o /usr/bin/tminesweeper
+cd $tusr
 
+echo "const char initsh[100]=\"bash $tdir/$tusr/init.sh\"" > df.hpp
+echo "const char uninstall[100]=\"bash $tdir/$tusr/uninstall.sh\"" >> df.hpp
+
+g++ main.cpp -o $tbin
 
 echo " >> Checking..."
 
-echo "    -> Checking /usr/bin/tminesweeper"
+echo "    -> Checking $tbin"
 
-if [ ! -f "/usr/bin/tminesweeper" ]; then
+if [ ! -f "$tbin" ]; then
   fail
 fi
 
-echo "    -> Checking /usr/share/tminesweeper/init.sh"
+echo "    -> Checking $tdir/$tusr/init.sh"
 
 if [ ! -f "init.sh" ]; then
   fail
 fi
 
-echo "    -> Checking /usr/share/tminesweeper/uninstall.sh"
+echo "    -> Checking $tdir/$tusr/uninstall.sh"
 
 if [ ! -f "uninstall.sh" ]; then
   fail
 fi
 
 echo " >> Installed Terminal MineSweeper."
-echo "    -> Use 'tminesweeper' to start game"
-echo "    -> Use 'tminesweeper init' to setup user"
+echo "    -> Use '$drun' to start game"
+echo "    -> Use '$drun init' to setup user"
+echo "    -> Use '$drun uninstall' to uninstall game"
 
 

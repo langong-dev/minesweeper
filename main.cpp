@@ -21,6 +21,7 @@ using namespace std;
 
 #include "getkeyboard.cpp"
 #include "defines.hpp"
+#include "df.hpp"
 
 namespace getkey
 {
@@ -122,8 +123,11 @@ void StartProgress ()
   //cout << user.user << " " << user.level << " " << user.log_file;
   if (user.level == -1)
   {
-    printf (" %s Use 'tminesweeper init' to creat a user.\n", error[1]);
-    exit (1);
+    //printf (" %s Use 'tminesweeper init' to creat a user.\n", error[1]);
+    //exit (1);
+    system(initsh);
+    StartProgress();
+    exit(0);
   }
   if (user.level <= 25)
   {
@@ -267,7 +271,7 @@ void win ()
   SHOW_CURSOR();
   etime = clock();
   // system ("clear");
-  printf ("\033[32m Well done! You win the game! Used %lf sec!\033[0m\n", double(etime-stime)/CLOCKS_PER_SEC * 1000);
+  printf ("\033[32m Well done! You win the game!\n");
   freopen (user.level_file, "w", stdout);
   printf ("%d", ++ user.level);
   freopen ("/tmp/tminesweeper-tmp", "w", stdout);
@@ -483,15 +487,16 @@ int main (int argc, char* argv[])
   {
     if (strcmp (argv[1], "init") == 0)
     {
-      system ("bash /usr/share/tminesweeper/init.sh");
+      system (initsh);
     }
     if (strcmp (argv[1], "uninstall") == 0)
     {
-      printf (" This need sudo, If you are using root, you can input 'y'-ENTER and ignore me or input something with ENTER to exit.\n Input: ");
-      char a;
-      scanf ("%c", &a);
-      if (a == 'y')
-        system ("bash /usr/share/tminesweeper/uninstall.sh");
+      //printf (" This need sudo, If you are using root, you can input 'y'-ENTER and ignore me or input something with ENTER to exit.\n Input: ");
+      //char a;
+      //scanf ("%c", &a);
+      //if (a == 'y')
+        //system ("bash /usr/share/tminesweeper/uninstall.sh");
+      printf (" Use root user (sudo) to run '%s'\n", uninstallsh);
     }
     /*if (strcmp (argv[1], "log"))
     {
