@@ -6,26 +6,33 @@
 
 # Install Game
 
+## Install for all users
+
 ```
-$ wget https://cdn.jsdelivr.net/gh/langong-dev/tminesweeper/install.sh
+$ wget https://raw.githubusercontent.com/langong-dev/tminesweeper/master/install.sh
 # bash install.sh
 ```
 
-# Creat user
-
-each user in your computer can creat only **one** user.
+## Install for you
 
 ```
-$ tminesweeper init
+$ wget https://raw.githubusercontent.com/langong-dev/tminesweeper/master/install.sh
+$ bash install.sh --install-to-here
 ```
 
 # Start game
 
 **Don't** use **root** to run the game.
 
+## When you install game for all users
+
 ```
 $ tminesweeper
 ```
+
+## When you install game just for you
+
+INSTALL-SCRIPT telled you to do what.
 
 # Uninstall game
 
