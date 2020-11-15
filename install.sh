@@ -14,8 +14,8 @@ then
   echo " :: Install to here..."
   tbin="./bin/tminesweeper"
   tdir="."
-  tusr="tminesweeper"
-  drun="./tminesweeper"
+  tusr="tminesweeper-bin"
+  drun="./bin/tminesweeper"
 else
   echo " :: Install to computer"
   tbin="/usr/bin/tminesweeper"
