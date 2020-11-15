@@ -13,8 +13,8 @@ if [ "$type" == "--install-to-here" ]
 then
   echo " :: Install to here..."
   tbin="./bin/tminesweeper"
-  tdir="./"
-  tusr="share"
+  tdir="."
+  tusr="tminesweeper"
   drun="./tminesweeper"
 else
   echo " :: Install to computer"
@@ -33,8 +33,8 @@ git clone https://github.com/langong-dev/tminesweeper.git $tusr
 echo "    -> Putting files..."
 cd $tusr
 
-echo "const char initsh[100]=\"bash $tdir/$tusr/init.sh\"" > df.hpp
-echo "const char uninstall[100]=\"bash $tdir/$tusr/uninstall.sh\"" >> df.hpp
+echo "const char initsh[100]=\"bash $tdir/$tusr/init.sh\";" > df.hpp
+echo "const char uninstall[100]=\"bash $tdir/$tusr/uninstall.sh\";" >> df.hpp
 
 g++ main.cpp -o $tbin
 
