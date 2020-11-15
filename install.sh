@@ -12,10 +12,10 @@ echo " >> Installing Terminal MineSweeper..."
 if [ "$type" == "--install-to-here" ]
 then
   echo " :: Install to here..."
-  tbin="./bin/tminesweeper"
+  tbin="./tminesweeper"
   tdir="."
   tusr="tminesweeper-bin"
-  drun="./bin/tminesweeper"
+  drun="./tminesweeper-bin/tminesweeper"
 else
   echo " :: Install to computer"
   tbin="/usr/bin/tminesweeper"
