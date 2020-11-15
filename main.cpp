@@ -302,10 +302,10 @@ void dfs (int x, int y)
     num[x][y] = back[x][y];
     return;
   }
-  for (int i = 0; i < 4; i ++)
+  for (int i = 0; i < 8; i ++)
   {
-    int xx = dx[i] + x;
-    int yy = dy[i] + y;
+    int xx = nx[i] + x;
+    int yy = ny[i] + y;
     if (xx < 1 || yy < 1 || xx > gw() || yy > gw())
     {
       continue;
