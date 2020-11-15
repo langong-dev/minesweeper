@@ -34,7 +34,7 @@ echo "    -> Putting files..."
 cd $tusr
 
 echo "const char initsh[100]=\"bash $tdir/$tusr/init.sh\";" > df.hpp
-echo "const char uninstall[100]=\"bash $tdir/$tusr/uninstall.sh\";" >> df.hpp
+echo "const char uninstallsh[100]=\"bash $tdir/$tusr/uninstall.sh\";" >> df.hpp
 
 g++ main.cpp -o $tbin
 
