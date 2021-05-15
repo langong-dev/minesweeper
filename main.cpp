@@ -1,4 +1,4 @@
-#define LanGong 2020
+#define LanGong 
 
 
 /**
@@ -263,6 +263,7 @@ void dead (){
   freopen ("/tmp/tminesweeper-tmp", "w", stdout);
   printf ("User %s lose the game.\n", user.user);
   system ("echo $(cat /tmp/tminesweeper-tmp) >> $HOME/.local/share/tminesweeper/log");
+  system("stty echo");
   exit (0);
 }
 
@@ -277,6 +278,7 @@ void win ()
   freopen ("/tmp/tminesweeper-tmp", "w", stdout);
   printf ("User %s win the level %d in %lf sec.", user.user, user.level, double(etime-stime)/CLOCKS_PER_SEC * 1000);
   system ("echo $(cat /tmp/tminesweeper-tmp) >> $HOME/.local/share/tminesweeper/log");
+  system("stty echo");
   exit (0);
 }
 
@@ -502,6 +504,7 @@ int main (int argc, char* argv[])
     {
       system ("cat ~/.local/share/minesweeper/log");
     }*/
+    system("stty echo");
     return 0;
   }
   StartProgress();
@@ -517,6 +520,7 @@ int main (int argc, char* argv[])
   // }return 0;
   int st = StartGame();
   SHOW_CURSOR();
+  system("stty echo");
   return st;
 }
 
