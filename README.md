@@ -22,7 +22,7 @@ $ bash install.sh --install-to-here
 
 # Start game
 
-**Don't** use **root** to run the game.
+Do **NOT** use **root** to run the game.
 
 ## When you install game for all users
 
